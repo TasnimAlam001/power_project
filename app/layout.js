@@ -15,12 +15,42 @@ import Typography from "@mui/material/Typography";
 // import ListItemText from "@mui/material/ListItemText";
 // import InboxIcon from "@mui/icons-material/MoveToInbox";
 // import MailIcon from "@mui/icons-material/Mail";
-import Image from "next/image"
-import logo from "@/public/logo2.png"
+import Image from "next/image";
+import logo from "@/public/logo2.png";
 import { FaMapMarkerAlt, FaSignOutAlt, FaUser, FaUsers } from "react-icons/fa";
 import { RiLightbulbFlashFill } from "react-icons/ri";
 import { TbBulbFilled } from "react-icons/tb";
 import { GiWallet } from "react-icons/gi";
+import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
+import styled from "@emotion/styled";
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}))
 
 const drawerWidth = 200;
 
@@ -38,8 +68,9 @@ export default function RootLayout({ children }) {
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
 
-          {/* nav */}
+          {/* --------------------------------------------------nav */}
           <AppBar
+            className="bg-white text-black shadow-none"
             position="fixed"
             sx={{
               width: `calc(100% - ${drawerWidth}px)`,
@@ -48,12 +79,27 @@ export default function RootLayout({ children }) {
           >
             <Toolbar>
               <Typography variant="h6" noWrap component="div">
-                Permanent drawer
+                <div>
+                  <span>
+                    <FormatAlignLeftIcon />
+                    
+                  </span>
+
+                  <Search>
+                    <SearchIconWrapper>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      placeholder="Search…"
+                      inputProps={{ "aria-label": "search" }}
+                    />
+                  </Search>
+                </div>
               </Typography>
             </Toolbar>
           </AppBar>
 
-          {/* ---------------side drawer */}
+          {/* ------------------------------------------side drawer */}
           <Drawer
             sx={{
               width: drawerWidth,
@@ -66,61 +112,61 @@ export default function RootLayout({ children }) {
             variant="permanent"
             anchor="left"
           >
-
             {/* ministy logo */}
             <div className="h-[70px]  pt-4   flex">
-              <Image src={logo} className="w-[70px] pl-4" alt="ministry of power energy and mineral resources bangladesh logo"></Image>
-               <p className="text-xs pl-2 font-semibold">Ministry of Power Energy & Mineral Resources</p>
+              <Image
+                src={logo}
+                className="w-[70px] pl-4"
+                alt="ministry of power energy and mineral resources bangladesh logo"
+              ></Image>
+              <p className="text-xs pl-2 font-semibold">
+                Ministry of Power Energy & Mineral Resources
+              </p>
             </div>
 
             <Toolbar />
-            
-            {/* <List>
-              {["Inbox", "Starred", "Send email", "Drafts"].map(
-                (text, index) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItemButton>
-                  </ListItem>
-                )
-              )}
-            </List> */}
+
             <List className="pl-6">
               <ul>
-                <li className="flex items-center gap-2 mb-4"> <FaUser /> <span>Executive</span></li>
-                <li className="flex items-center gap-2 mb-4"> <RiLightbulbFlashFill /> <span>Utilities</span></li>
-                <li className="flex items-center gap-2 mb-4"> <FaMapMarkerAlt /><span>Zone</span></li>
-                <li className="flex items-center gap-2 mb-4"> <TbBulbFilled /> <span>S & D List</span></li>
-                <li className="flex items-center gap-2 mb-4"> <FaUsers /> <span>Users</span></li>
-                <li className="flex items-center gap-2 mb-4"> <GiWallet /> <span>All Tickets</span></li>
-                <li className="flex items-center gap-2 mb-4 "> <FaSignOutAlt /><span>Logout</span></li>
+                <li className="flex items-center gap-2 mb-4">
+                  {" "}
+                  <FaUser /> <span>Executive</span>
+                </li>
+                <li className="flex items-center gap-2 mb-4">
+                  {" "}
+                  <RiLightbulbFlashFill /> <span>Utilities</span>
+                </li>
+                <li className="flex items-center gap-2 mb-4">
+                  {" "}
+                  <FaMapMarkerAlt />
+                  <span>Zone</span>
+                </li>
+                <li className="flex items-center gap-2 mb-4">
+                  {" "}
+                  <TbBulbFilled /> <span>S & D List</span>
+                </li>
+                <li className="flex items-center gap-2 mb-4">
+                  {" "}
+                  <FaUsers /> <span>Users</span>
+                </li>
+                <li className="flex items-center gap-2 mb-4">
+                  {" "}
+                  <GiWallet /> <span>All Tickets</span>
+                </li>
+                <li className="flex items-center gap-2 mb-4 ">
+                  {" "}
+                  <FaSignOutAlt />
+                  <span>Logout</span>
+                </li>
               </ul>
-
             </List>
-            {/* <Divider />
-            <List>
-              {["All mail", "Trash", "Spam"].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List> */}
           </Drawer>
-
 
           {/* main content */}
           <Box
+            className="bg-slate-100"
             component="main"
-            sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+            sx={{ flexGrow: 1, p: 3 }}
           >
             <Toolbar />
             {children}
