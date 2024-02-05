@@ -1,5 +1,28 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import CssBaseline from "@mui/material/CssBaseline";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
+// import Divider from "@mui/material/Divider";
+// import ListItem from "@mui/material/ListItem";
+// import ListItemButton from "@mui/material/ListItemButton";
+// import ListItemIcon from "@mui/material/ListItemIcon";
+// import ListItemText from "@mui/material/ListItemText";
+// import InboxIcon from "@mui/icons-material/MoveToInbox";
+// import MailIcon from "@mui/icons-material/Mail";
+import Image from "next/image"
+import logo from "@/public/logo2.png"
+import { FaMapMarkerAlt, FaSignOutAlt, FaUser, FaUsers } from "react-icons/fa";
+import { RiLightbulbFlashFill } from "react-icons/ri";
+import { TbBulbFilled } from "react-icons/tb";
+import { GiWallet } from "react-icons/gi";
+
+const drawerWidth = 200;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,8 +33,100 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="min-h-screen">
+      <body className={inter.className}>
+        <Box sx={{ display: "flex" }}>
+          <CssBaseline />
+
+          {/* nav */}
+          <AppBar
+            position="fixed"
+            sx={{
+              width: `calc(100% - ${drawerWidth}px)`,
+              ml: `${drawerWidth}px`,
+            }}
+          >
+            <Toolbar>
+              <Typography variant="h6" noWrap component="div">
+                Permanent drawer
+              </Typography>
+            </Toolbar>
+          </AppBar>
+
+          {/* ---------------side drawer */}
+          <Drawer
+            sx={{
+              width: drawerWidth,
+              flexShrink: 0,
+              "& .MuiDrawer-paper": {
+                width: drawerWidth,
+                boxSizing: "border-box",
+              },
+            }}
+            variant="permanent"
+            anchor="left"
+          >
+
+            {/* ministy logo */}
+            <div className="h-[70px]  pt-4   flex">
+              <Image src={logo} className="w-[70px] pl-4" alt="ministry of power energy and mineral resources bangladesh logo"></Image>
+               <p className="text-xs pl-2 font-semibold">Ministry of Power Energy & Mineral Resources</p>
+            </div>
+
+            <Toolbar />
+            
+            {/* <List>
+              {["Inbox", "Starred", "Send email", "Drafts"].map(
+                (text, index) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                )
+              )}
+            </List> */}
+            <List className="pl-6">
+              <ul>
+                <li className="flex items-center gap-2 mb-4"> <FaUser /> <span>Executive</span></li>
+                <li className="flex items-center gap-2 mb-4"> <RiLightbulbFlashFill /> <span>Utilities</span></li>
+                <li className="flex items-center gap-2 mb-4"> <FaMapMarkerAlt /><span>Zone</span></li>
+                <li className="flex items-center gap-2 mb-4"> <TbBulbFilled /> <span>S & D List</span></li>
+                <li className="flex items-center gap-2 mb-4"> <FaUsers /> <span>Users</span></li>
+                <li className="flex items-center gap-2 mb-4"> <GiWallet /> <span>All Tickets</span></li>
+                <li className="flex items-center gap-2 mb-4 "> <FaSignOutAlt /><span>Logout</span></li>
+              </ul>
+
+            </List>
+            {/* <Divider />
+            <List>
+              {["All mail", "Trash", "Spam"].map((text, index) => (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List> */}
+          </Drawer>
+
+
+          {/* main content */}
+          <Box
+            component="main"
+            sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+          >
+            <Toolbar />
+            {children}
+          </Box>
+        </Box>
+      </body>
     </html>
   );
 }
