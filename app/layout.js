@@ -8,49 +8,26 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-// import Divider from "@mui/material/Divider";
-// import ListItem from "@mui/material/ListItem";
-// import ListItemButton from "@mui/material/ListItemButton";
-// import ListItemIcon from "@mui/material/ListItemIcon";
-// import ListItemText from "@mui/material/ListItemText";
-// import InboxIcon from "@mui/icons-material/MoveToInbox";
-// import MailIcon from "@mui/icons-material/Mail";
 import Image from "next/image";
 import logo from "@/public/logo2.png";
-import { FaMapMarkerAlt, FaSignOutAlt, FaUser, FaUsers } from "react-icons/fa";
+import {
+  FaBell,
+  FaExpand,
+  FaMapMarkerAlt,
+  FaRegMoon,
+  FaSearch,
+  FaSignOutAlt,
+  FaUser,
+  FaUsers,
+} from "react-icons/fa";
 import { RiLightbulbFlashFill } from "react-icons/ri";
 import { TbBulbFilled } from "react-icons/tb";
 import { GiWallet } from "react-icons/gi";
 import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
-import styled from "@emotion/styled";
+import { Button, InputAdornment, TextField } from "@mui/material";
+import Profile from "./components/profile/page";
 
-
-
-
-
-
-
-
-
-
-
-
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}))
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const drawerWidth = 200;
 
@@ -62,6 +39,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en" className="min-h-screen">
       <body className={inter.className}>
@@ -78,28 +56,46 @@ export default function RootLayout({ children }) {
             }}
           >
             <Toolbar>
-              <Typography variant="h6" noWrap component="div">
-                <div>
-                  <span>
+              <div className="w-full flex justify-between">
+                <div className="flex items-center">
+                  <span className="pr-5 text-2xl">
                     <FormatAlignLeftIcon />
-                    
                   </span>
 
-                  <Search>
-                    <SearchIconWrapper>
-                      <SearchIcon />
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                      placeholder="Search…"
-                      inputProps={{ "aria-label": "search" }}
+                  <div>
+                    <TextField
+                      className="py-2 ml-4"
+                      placeholder="Search.."
+                      size="small"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            {" "}
+                            <FaSearch />
+                          </InputAdornment>
+                        ),
+                      }}
                     />
-                  </Search>
+                  </div>
                 </div>
-              </Typography>
+                <div className=" flex align-middle">
+                  <Button className="text-black" size="large">
+                    <FaExpand />
+                  </Button>
+                  <Button className="text-black " size="large">
+                    <FaRegMoon />
+                  </Button>
+                  <Button className="text-black " size="large">
+                    <FaBell />
+                  </Button>
+                  <Profile></Profile>
+                  
+                </div>
+              </div>
             </Toolbar>
           </AppBar>
 
-          {/* ------------------------------------------side drawer */}
+          {/* ------------------------------------------side drawer------------------------------- */}
           <Drawer
             sx={{
               width: drawerWidth,
@@ -129,32 +125,25 @@ export default function RootLayout({ children }) {
             <List className="pl-6">
               <ul>
                 <li className="flex items-center gap-2 mb-4">
-                  {" "}
                   <FaUser /> <span>Executive</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
-                  {" "}
                   <RiLightbulbFlashFill /> <span>Utilities</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
-                  {" "}
                   <FaMapMarkerAlt />
                   <span>Zone</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
-                  {" "}
                   <TbBulbFilled /> <span>S & D List</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
-                  {" "}
                   <FaUsers /> <span>Users</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4">
-                  {" "}
                   <GiWallet /> <span>All Tickets</span>
                 </li>
                 <li className="flex items-center gap-2 mb-4 ">
-                  {" "}
                   <FaSignOutAlt />
                   <span>Logout</span>
                 </li>
