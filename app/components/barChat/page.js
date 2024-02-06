@@ -73,8 +73,8 @@ export default function BarCharts() {
 
             <Legend  />
             
-            <Bar dataKey="Opened" fill="#1dc249" />
-            <Bar dataKey="Solved" fill="#7052f7" />
+            <Bar dataKey="Opened" fill="#04984A" />
+            <Bar dataKey="Solved" fill="#3382EF" />
           </BarChart>
         </CardContent>
         
