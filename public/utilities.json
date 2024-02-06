@@ -1,0 +1,47 @@
+
+ [
+      {
+        "id":1,
+        "name": "Company A",
+        "logo": "https://i.ibb.co/xXRGvkn/nesco.png",
+        "total_complaints": 1530,
+        "timestamp": "10:30 AM, Feb 6th, 2024"
+      },
+      {
+        "id":2,
+        "name": "Company B",
+        "logo": "https://i.ibb.co/CQFCp8L/eedea0f0bb003ee0d679a35abc35f930.png",
+        "total_complaints": 1070,
+        "timestamp": "11:45 AM, Feb 6th, 2024"
+      },
+      {
+        "id":3,
+        "name": "Company C",
+        "logo": "https://i.ibb.co/T4JYx5T/d387b7fa87891b0b521b85f40b030e0e.png",
+        "total_complaints": 5080,
+        "timestamp": "12:15 PM, Feb 6th, 2024"
+      },
+      {
+        "id":4,
+        "name": "Company D",
+        "logo": "https://i.ibb.co/9wfrdMj/e9ce0855d029a97c6d66e70249dfe21b.png",
+        "total_complaints": 6200,
+        "timestamp": "1:00 PM, Feb 6th, 2024"
+      },
+      {
+        "id":5,
+        "name": "Company E",
+        "logo": "https://i.ibb.co/yBf0R1M/7bba1394040950fbebd66f90bae5b9ac.png",
+        "total_complaints": 1350,
+        "timestamp": "2:30 PM, Feb 6th, 2024"
+      },
+      {
+        "id":6,
+        "name": "Company F",
+        "logo": "https://i.ibb.co/f9Ts9Bf/biddut-board.png",
+        "total_complaints": 1020,
+        "timestamp": "3:45 PM, Feb 6th, 2024"
+      }
+    ]
+  
+  
