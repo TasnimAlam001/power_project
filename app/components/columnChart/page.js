@@ -1,113 +1,93 @@
-"use client"
-import * as React from 'react';
-import { BarChart } from '@mui/x-charts/BarChart';
+"use client";
+import * as React from "react";
+import {
+  ComposedChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
+import { Card, CardContent } from "@mui/material";
+// import { scaleOrdinal } from "d3-scale";
+// import { schemeCategory10 } from "d3-scale-chromatic";
+// const colors = scaleOrdinal(schemeCategory10).range();
 
-const chartSetting = {
-  xAxis: [
-    {
-      label: 'rainfall (mm)',
-    },
-  ],
-  width: 500,
-  height: 400,
-};
-const dataset = [
+const data = [
   {
-    london: 59,
-    paris: 57,
-    newYork: 86,
-    seoul: 21,
-    month: 'Jan',
+    name: "Recharge Related",
+    ticketCount: 530,
+    
   },
   {
-    london: 50,
-    paris: 52,
-    newYork: 78,
-    seoul: 28,
-    month: 'Fev',
+    name: "Voltage Related",
+    ticketCount: 400,
+    
   },
   {
-    london: 47,
-    paris: 53,
-    newYork: 106,
-    seoul: 41,
-    month: 'Mar',
+    name: "Fuse Releted",
+    ticketCount: 320,
+    
   },
   {
-    london: 54,
-    paris: 56,
-    newYork: 92,
-    seoul: 73,
-    month: 'Apr',
+    name: "Transformer Releted",
+    ticketCount: 300,
+    
   },
   {
-    london: 57,
-    paris: 69,
-    newYork: 92,
-    seoul: 99,
-    month: 'May',
+    name: "Shutdown Releted",
+    ticketCount: 220,
+    
   },
   {
-    london: 60,
-    paris: 63,
-    newYork: 103,
-    seoul: 144,
-    month: 'June',
+    name: "Load Releted",
+    ticketCount: 130,
+    
   },
   {
-    london: 59,
-    paris: 60,
-    newYork: 105,
-    seoul: 319,
-    month: 'July',
-  },
-  {
-    london: 65,
-    paris: 60,
-    newYork: 106,
-    seoul: 249,
-    month: 'Aug',
-  },
-  {
-    london: 51,
-    paris: 51,
-    newYork: 95,
-    seoul: 131,
-    month: 'Sept',
-  },
-  {
-    london: 60,
-    paris: 65,
-    newYork: 97,
-    seoul: 55,
-    month: 'Oct',
-  },
-  {
-    london: 67,
-    paris: 64,
-    newYork: 76,
-    seoul: 48,
-    month: 'Nov',
-  },
-  {
-    london: 61,
-    paris: 70,
-    newYork: 103,
-    seoul: 25,
-    month: 'Dec',
+    name: "Query BPDB Releted",
+    ticketCount: 130,
+    
   },
 ];
 
-const valueFormatter = (value) => `${value}mm`;
-
 export default function ColumnCharts() {
   return (
-    <BarChart
-      dataset={dataset}
-      yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-      series={[{ dataKey: 'seoul', label: 'Seoul rainfall', valueFormatter ,  }]}
-      layout="horizontal"
-      {...chartSetting}
-    />
+    <div>
+      <Card className="h-[595px]">
+        <CardContent className="p-0">
+          <h1 className="p-6 text-2xl">
+            Utility Wise Long Pending Opending Tickets
+          </h1>
+          
+          <ComposedChart
+            layout="vertical"
+            width={600}
+            height={460}
+            data={data}
+            margin={{
+              top: 20,
+              right: 20,
+              bottom: 20,
+              left: 70,
+            }}
+          >
+            <CartesianGrid stroke="#f5f5f5" />
+            <XAxis type="number" />
+            <YAxis dataKey="name" type="category" scale="auto" />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="ticketCount" barSize={35} fill="#CEB900"
+            
+            label={{ position: "right" }}
+            >
+             
+              
+            </Bar>
+          </ComposedChart>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
