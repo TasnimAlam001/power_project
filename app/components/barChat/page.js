@@ -1,5 +1,6 @@
-"use client";
+"use client"
 import { Card, CardContent, Divider, Typography } from "@mui/material";
+
 import {
   BarChart,
   Bar,
@@ -9,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+
 
 export default function BarCharts() {
   const data = [
@@ -59,6 +61,7 @@ export default function BarCharts() {
             width={650}
             height={400}
             data={data}
+           
             margin={{
               top: 55,
               right: 30,
@@ -67,7 +70,7 @@ export default function BarCharts() {
             }}
           >
             <CartesianGrid strokeDasharray="" />
-            <XAxis dataKey="name"/>
+            <XAxis   dataKey="name" categoryGapRatio={0.4}/>
             <YAxis />
             <Tooltip />
 

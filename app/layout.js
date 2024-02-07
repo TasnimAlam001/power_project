@@ -87,7 +87,8 @@ export default function RootLayout({ children }) {
                   <Button className="text-black " size="large">
                     <FaBell />
                   </Button>
-                  <Profile></Profile>
+
+                  <Profile/>
                   
                 </div>
               </div>
@@ -107,7 +108,10 @@ export default function RootLayout({ children }) {
             variant="permanent"
             anchor="left"
           >
-            {/* ministy logo */}
+           
+           
+
+
             <div className="h-[70px]  pt-4   flex">
               <Image
                 src={logo}
