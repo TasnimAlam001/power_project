@@ -55,6 +55,7 @@ const data = [
 export default function ColumnCharts() {
   return (
     <div>
+    
       <Card className="h-[595px]">
         <CardContent className="p-0">
           <h1 className="p-6 text-2xl">
@@ -73,17 +74,14 @@ export default function ColumnCharts() {
               left: 70,
             }}
           >
-            <CartesianGrid stroke="#f5f5f5" />
+            <CartesianGrid stroke="#E4E4E4" />
             <XAxis type="number" />
             <YAxis dataKey="name" type="category" scale="auto" />
             <Tooltip />
             <Legend />
-            <Bar dataKey="ticketCount" barSize={35} fill="#CEB900"
-            
-            label={{ position: "right" }}
+            <Bar dataKey="ticketCount" barSize={35} fill="#CEB900" label={{ position: "right" }}
             >
-             
-              
+ 
             </Bar>
           </ComposedChart>
         </CardContent>

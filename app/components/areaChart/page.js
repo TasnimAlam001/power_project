@@ -56,7 +56,7 @@ export default function AreaCharts() {
             data={data}
             margin={{
               top: 10,
-              right: 30,
+              right: 30,    
               left: 30, 
               bottom: 0,
             }}

@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
 
-          {/* --------------------------------------------------nav */}
+          {/* --------------------------------------------------nav------------------------------ */}
           <AppBar
             className="bg-white text-black shadow-none"
             position="fixed"
